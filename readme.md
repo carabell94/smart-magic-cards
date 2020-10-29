@@ -1,5 +1,5 @@
 # Smart Magic Cards
-Join Smart by performing a simple magic trick.
+Join Smart by performing a simple magic trick!
 
 A magician has a deck of cards, 52 cards, 13 of each suit (Hearts, Diamonds, Clubs and Spades).<br>
 He will show us all of the cards and we will see that they are ordered and sorted by suit.<br>
