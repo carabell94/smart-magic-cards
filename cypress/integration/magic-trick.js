@@ -73,7 +73,7 @@ describe('Play game', () => {
     //   expect(allCardValues).to.not.include(selectedCard.getAttribute('data-value'));
     // });
 
-    // /* The removed cards are desplayed in the `selected-card-wrapper` */
+    // /* The removed cards are displayed in the `selected-card-wrapper` */
     // cy.get('.selected-card-wrapper .card').then((cards) => {
     //   const allCardValues = [...cards].map((card) => card.getAttribute('data-value'));
     //   const selectedValue = selectedCard.getAttribute('data-value');
