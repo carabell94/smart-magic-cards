@@ -88,12 +88,12 @@ function clickOnCard() {
   });
 }
 
-// Function to 'Flip Cards' (add hide-cards class to cardsWrapper upon click)
+// Function to 'Flip Cards' (add hidden class from css to cardsWrapper upon click)
 function flipCards() {
-  if (cardsWrapper.classList.contains('hide-cards')) {
-    cardsWrapper.classList.remove('hide-cards');
+  if (cardsWrapper.classList.contains('hidden')) {
+    cardsWrapper.classList.remove('hidden');
   } else {
-    cardsWrapper.classList.add('hide-cards');
+    cardsWrapper.classList.add('hidden');
   }
 }
 
