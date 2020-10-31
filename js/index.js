@@ -64,11 +64,21 @@ function styleCards() {
   });
 }
 
-// Function to choose card
+// Function to choose card & add to SelectedCardsWrapper
 function chooseCard(card) {
   if (selectedCards.length === 0) {
     selectedCardsWrapper.appendChild(card);
   }
+}
+
+// Function to listen for a card click
+function clickOnCard() {
+  deck.forEach((card) => {
+    card.addEventListener('click', () => {
+      chooseCard(card);
+      createMagicTrickButton(card);
+    });
+  });
 }
 
 // Function to return value of card
@@ -88,7 +98,7 @@ function magicTrick(card) {
 
 // Function to create Magic Trick button if there is only one card in selectedCardsWrapper
 // Includes hiding that button once magic trick has been performed
-function createMagicTrickButton(selectedCard) {
+function createMagicTrickButton(chosenCard) {
   const magicTrickButton = document.getElementById('magic-trick');
   if (magicTrickButton === 'undefined' && selectedCards.length === 1) {
     const btn = document.createElement('button');
@@ -97,7 +107,7 @@ function createMagicTrickButton(selectedCard) {
     btn.innerHTML = 'Magic Trick';
     btnWrapper.appendChild(btn);
     btn.addEventListener('click', () => {
-      magicTrick(selectedCard);
+      magicTrick(chosenCard);
       hideButton('magic-trick');
     });
   }
