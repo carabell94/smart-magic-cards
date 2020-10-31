@@ -35,7 +35,7 @@ function createButtons() {
 // Function to style cards in deck
 function styleCards() {
   deck.forEach((card, i) => {
-    const positionFromLeft = i * 40;
+    const positionFromLeft = i * 25;
     card.style.left = `${positionFromLeft}px`;
   });
 }
@@ -127,7 +127,6 @@ function displayCards() {
     cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
   });
-  styleCards();
   clickOnCard();
 }
 
