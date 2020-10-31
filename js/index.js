@@ -5,7 +5,8 @@ const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-lin
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
 const deck = [...cardsWrapper.children];
 const selectedCards = [...selectedCardsWrapper.children];
-// const cards = [];
+const startButton = document.getElementById('start-game');
+const cards = [];
 
 // Function to hide unnecessary buttons at any given time in game
 function hideButton(buttonId) {
@@ -65,7 +66,7 @@ function magicTrick(card) {
 // Includes hiding that button once magic trick has been performed
 function createMagicTrickButton(chosenCard) {
   const magicTrickButton = document.getElementById('magic-trick');
-  if (magicTrickButton === 'undefined' && selectedCards.length === 1) {
+  if (magicTrickButton === undefined && selectedCards.length === 1) {
     const btn = document.createElement('button');
     btn.classList.add('btn', 'btn-lg', 'btn-secondary');
     btn.setAttribute('id', 'magic-trick');
@@ -97,37 +98,25 @@ function flipCards() {
   }
 }
 
+function removeCards() {
+  const cardsWrapperEmpty = document.querySelector('.cards-wrapper');
+
+  while (cardsWrapperEmpty.firstChild) {
+    cardsWrapperEmpty.firstChild.remove();
+  }
+}
+
 // Function to 'Shuffle Cards'
-function shuffleCards() {
-  for (let i = deck.length; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * 1);
-    cardsWrapper.appendChild(deck[j]);
-  }
-  styleCards();
-}
+// function shuffleCards() {
+//   for (let i = deck.length; i > 0; i -= 1) {
+//     const j = Math.floor(Math.random() * 1);
+//     cardsWrapper.appendChild(deck[j]);
+//   }
+//   styleCards();
+// }
 
-// Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
-function clickOnButton() {
-  const flipBtn = document.getElementById('flip-cards');
-  flipBtn.addEventListener('click', flipCards);
-  const shuffleBtn = document.getElementById('shuffle-cards');
-  shuffleBtn.addEventListener('click', shuffleCards);
-}
-
-function createCards() {
-  const cards = [];
-  // Create an array with objects containing the value and the suit of each card
-  // starting at 0, increment the suit by 1 until it reaches 13
-  for (let s = 0; s < suits.length; s += 1) {
-    for (let i = 1; i <= 13; i += 1) {
-      const cardObject = {
-        value: i,
-        suit: suits[s],
-      };
-      cards.push(cardObject);
-    }
-  }
-
+// Function to display cards
+function displayCards() {
   // For each dataObject, create a new card and append it to the DOM
   cards.forEach((card, i) => {
     const positionFromLeft = i * 15;
@@ -141,15 +130,46 @@ function createCards() {
   clickOnCard();
 }
 
+// Function to shuffle cards by first removing all cards then shuffling using random shuffle method
+function shuffleCards() {
+  removeCards();
+  const shuffleArray = cards.sort(() => Math.random() - 0.5);
+  displayCards(shuffleArray);
+}
+
+// Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
+function clickOnButton() {
+  const flipBtn = document.getElementById('flip-cards');
+  flipBtn.addEventListener('click', flipCards);
+  const shuffleBtn = document.getElementById('shuffle-cards');
+  shuffleBtn.addEventListener('click', shuffleCards);
+}
+
+function createCards() {
+  // Create an array with objects containing the value and the suit of each card
+  // for (let s = 0; s < suits.length; s += 1) {
+  suits.forEach((suit) => {
+    for (let i = 1; i <= 13; i += 1) {
+      const cardObject = {
+        value: i,
+        // eslint-disable-next-line object-shorthand
+        suit: suit,
+      };
+
+      cards.push(cardObject);
+    }
+  });
+  // displayCards();
+}
+
 // Function to start the game by clearing the wrapper, creating
 // and appending the buttons and all the cards to the DOM
 // Calling Click functions for shuffle and flip
 function startGame() {
   createButtons();
   createCards();
+  displayCards();
   clickOnButton();
 }
 
-document.getElementById('start-game').addEventListener('click', () => {
-  startGame();
-});
+startButton.addEventListener('click', startGame);
