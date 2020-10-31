@@ -35,7 +35,7 @@ function createButtons() {
 // Function to style cards in deck
 function styleCards() {
   deck.forEach((card, i) => {
-    const positionFromLeft = i * 15;
+    const positionFromLeft = i * 40;
     card.style.left = `${positionFromLeft}px`;
   });
 }
@@ -60,6 +60,7 @@ function magicTrick(card) {
       selectedCardsWrapper.appendChild(remainingCard);
     }
   });
+  styleCards();
 }
 
 // Function to create Magic Trick button if there is only one card in selectedCardsWrapper
@@ -98,11 +99,10 @@ function flipCards() {
   }
 }
 
+// Function to remove cards for shuffle
 function removeCards() {
-  const cardsWrapperEmpty = document.querySelector('.cards-wrapper');
-
-  while (cardsWrapperEmpty.firstChild) {
-    cardsWrapperEmpty.firstChild.remove();
+  while (cardsWrapper.firstChild) {
+    cardsWrapper.firstChild.remove();
   }
 }
 
@@ -119,7 +119,7 @@ function removeCards() {
 function displayCards() {
   // For each dataObject, create a new card and append it to the DOM
   cards.forEach((card, i) => {
-    const positionFromLeft = i * 15;
+    const positionFromLeft = i * 25;
     const cardElement = document.createElement('div');
     cardElement.setAttribute('data-value', card.value);
     cardElement.classList.add('card', `${card.suit}-${card.value}`);
@@ -135,6 +135,7 @@ function shuffleCards() {
   removeCards();
   const shuffleArray = cards.sort(() => Math.random() - 0.5);
   displayCards(shuffleArray);
+  styleCards();
 }
 
 // Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
