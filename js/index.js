@@ -4,6 +4,7 @@ const cardsWrapper = document.querySelector('.cards-wrapper');
 const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-line */
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
 const deck = [...cardsWrapper.children];
+const selectedCards = [...selectedCardsWrapper.children];
 // const cards = [];
 
 function createCards() {
@@ -63,6 +64,13 @@ function styleCards() {
   });
 }
 
+// Function to choose card
+function chooseCard(card) {
+  if (selectedCards.length === 0) {
+    selectedCardsWrapper.appendChild(card);
+  }
+}
+
 // Function to return value of card
 function valueOfCard(card) {
   return card.getAttribute('data-value');
@@ -76,6 +84,23 @@ function magicTrick(card) {
       selectedCardsWrapper.appendChild(remainingCard);
     }
   });
+}
+
+// Function to create Magic Trick button if there is only one card in selectedCardsWrapper
+// Includes hiding that button once magic trick has been performed
+function createMagicTrickButton(selectedCard) {
+  const magicTrickButton = document.getElementById('magic-trick');
+  if (magicTrickButton === 'undefined' && selectedCards.length === 1) {
+    const btn = document.createElement('button');
+    btn.classList.add('btn', 'btn-lg', 'btn-secondary');
+    btn.setAttribute('id', 'magic-trick');
+    btn.innerHTML = 'Magic Trick';
+    btnWrapper.appendChild(btn);
+    btn.addEventListener('click', () => {
+      magicTrick(selectedCard);
+      hideButton('magic-trick');
+    });
+  }
 }
 
 
