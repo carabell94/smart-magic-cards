@@ -40,13 +40,6 @@ function styleCards() {
   });
 }
 
-// Function to choose card & add to SelectedCardsWrapper
-function chooseCard(card) {
-  if (selectedCards.length === 0) {
-    selectedCardsWrapper.appendChild(card);
-  }
-}
-
 // Function to return value of card
 function valueOfCard(card) {
   return card.getAttribute('data-value');
@@ -72,11 +65,19 @@ function createMagicTrickButton(chosenCard) {
     btn.classList.add('btn', 'btn-lg', 'btn-secondary');
     btn.setAttribute('id', 'magic-trick');
     btn.innerHTML = 'Magic Trick';
+    btn.style.marginRight = '10px';
     btnWrapper.appendChild(btn);
     btn.addEventListener('click', () => {
       magicTrick(chosenCard);
       hideButton('magic-trick');
     });
+  }
+}
+
+// Function to choose card & add to SelectedCardsWrapper
+function chooseCard(card) {
+  if (selectedCards.length === 0) {
+    selectedCardsWrapper.appendChild(card);
   }
 }
 
