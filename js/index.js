@@ -114,12 +114,6 @@ function clickOnButton() {
   shuffleBtn.addEventListener('click', shuffleCards);
 }
 
-// Event Listener for clicking 'Shuffle Cards' button
-// function clickOnShuffle() {
-//   const shuffleBtn = document.getElementById('shuffle-cards');
-//   shuffleBtn.addEventListener('click', shuffleCards);
-// }
-
 function createCards() {
   const cards = [];
   // Create an array with objects containing the value and the suit of each card
