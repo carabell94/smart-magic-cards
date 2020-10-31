@@ -7,31 +7,6 @@ const deck = [...cardsWrapper.children];
 const selectedCards = [...selectedCardsWrapper.children];
 // const cards = [];
 
-function createCards() {
-  const cards = [];
-  // Create an array with objects containing the value and the suit of each card
-  // starting at 0, increment the suit by 1 until it reaches 13
-  for (let s = 0; s < 13; s += 1) {
-    for (let i = 1; i <= 13; i += 1) {
-      const cardObject = {
-        value: i,
-        suit: suits[s],
-      };
-      cards.push(cardObject);
-    }
-  }
-
-  // For each dataObject, create a new card and append it to the DOM
-  cards.forEach((card, i) => {
-    const positionFromLeft = i * 15;
-    const cardElement = document.createElement('div');
-    cardElement.setAttribute('data-value', card.value);
-    cardElement.classList.add('card', `${card.suit}-${card.value}`);
-    cardElement.style.left = `${positionFromLeft}px`;
-    cardsWrapper.append(cardElement);
-  });
-}
-
 // Function to hide unnecessary buttons at any given time in game
 function hideButton(buttonId) {
   const button = document.getElementById(buttonId);
@@ -71,15 +46,6 @@ function chooseCard(card) {
   }
 }
 
-// Function to listen for a card click
-function clickOnCard() {
-  deck.forEach((card) => {
-    card.addEventListener('click', () => {
-      chooseCard(card);
-      createMagicTrickButton(card);
-    });
-  });
-}
 
 // Function to return value of card
 function valueOfCard(card) {
@@ -113,6 +79,15 @@ function createMagicTrickButton(chosenCard) {
   }
 }
 
+// Function to listen for a card click on a card in deck
+function clickOnCard() {
+  deck.forEach((card) => {
+    card.addEventListener('click', () => {
+      chooseCard(card);
+      createMagicTrickButton(card);
+    });
+  });
+}
 
 // Function to 'Flip Cards' (add hide-cards class to cardsWrapper upon click)
 function flipCards() {
@@ -141,6 +116,33 @@ function shuffleCards() {
 function clickOnShuffle() {
   const shuffleBtn = document.getElementById('shuffle-cards');
   shuffleBtn.addEventListener('click', shuffleCards);
+}
+
+function createCards() {
+  const cards = [];
+  // Create an array with objects containing the value and the suit of each card
+  // starting at 0, increment the suit by 1 until it reaches 13
+  for (let s = 0; s < 13; s += 1) {
+    for (let i = 1; i <= 13; i += 1) {
+      const cardObject = {
+        value: i,
+        suit: suits[s],
+      };
+      cards.push(cardObject);
+    }
+  }
+
+  // For each dataObject, create a new card and append it to the DOM
+  cards.forEach((card, i) => {
+    const positionFromLeft = i * 15;
+    const cardElement = document.createElement('div');
+    cardElement.setAttribute('data-value', card.value);
+    cardElement.classList.add('card', `${card.suit}-${card.value}`);
+    cardElement.style.left = `${positionFromLeft}px`;
+    cardsWrapper.append(cardElement);
+  });
+  styleCards();
+  clickOnCard();
 }
 
 // Function to start the game by clearing the wrapper, creating
