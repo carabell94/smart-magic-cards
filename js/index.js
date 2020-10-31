@@ -108,7 +108,9 @@ function shuffleCards() {
 // Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
 function clickOnButton() {
   const flipBtn = document.getElementById('flip-cards');
-  flipBtn.addEventListener('click', flipCards);
+  flipBtn.addEventListener('click', () => {
+    flipCards();
+  });
   const shuffleBtn = document.getElementById('shuffle-cards');
   shuffleBtn.addEventListener('click', () => {
     shuffleCards();
