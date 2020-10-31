@@ -99,8 +99,9 @@ function flipCards() {
 
 // Function to 'Shuffle Cards'
 function shuffleCards() {
-  for (let i = 52; i >= 0; i -= 1) {
-    cardsWrapper.appendChild(deck[Math.random() * i]);
+  for (let i = deck.length; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * 1);
+    cardsWrapper.appendChild(deck[j]);
   }
   styleCards();
 }
@@ -108,13 +109,9 @@ function shuffleCards() {
 // Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
 function clickOnButton() {
   const flipBtn = document.getElementById('flip-cards');
-  flipBtn.addEventListener('click', () => {
-    flipCards();
-  });
+  flipBtn.addEventListener('click', flipCards);
   const shuffleBtn = document.getElementById('shuffle-cards');
-  shuffleBtn.addEventListener('click', () => {
-    shuffleCards();
-  });
+  shuffleBtn.addEventListener('click', shuffleCards);
 }
 
 // Event Listener for clicking 'Shuffle Cards' button
@@ -127,7 +124,7 @@ function createCards() {
   const cards = [];
   // Create an array with objects containing the value and the suit of each card
   // starting at 0, increment the suit by 1 until it reaches 13
-  for (let s = 0; s < 13; s += 1) {
+  for (let s = 0; s < suits.length; s += 1) {
     for (let i = 1; i <= 13; i += 1) {
       const cardObject = {
         value: i,
