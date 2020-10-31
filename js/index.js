@@ -17,17 +17,17 @@ function hideButton(buttonId) {
 // and create new buttons (shuffle cards and flip cards) to play the game.
 function createButtons() {
   hideButton('start-game');
-  const addButtons = [
+  const newButtons = [
     { name: 'flip-cards', innerHTML: 'Flip Cards' },
     { name: 'shuffle-cards', innerHTML: 'Shuffle Cards' },
   ];
-  addButtons.forEach((button) => {
+  newButtons.forEach((button) => {
     const btn = document.createElement('button');
     btn.classList.add('btn', 'btn-lg', 'btn-secondary');
-    btn.setAttribute('id', `${btn.name}`);
-    // btn.style.margin = '5px';
-    btn.innerHTML = `${btn.innerHTML}`;
-    btnWrapper.appendChild(button);
+    btn.setAttribute('id', `${button.name}`);
+    btn.style.marginRight = '10px';
+    btn.innerHTML = `${button.innerHTML}`;
+    btnWrapper.appendChild(btn);
   });
 }
 
@@ -45,7 +45,6 @@ function chooseCard(card) {
     selectedCardsWrapper.appendChild(card);
   }
 }
-
 
 // Function to return value of card
 function valueOfCard(card) {
@@ -151,8 +150,10 @@ function createCards() {
 function startGame() {
   createButtons();
   createCards();
-  clickOnFlip();
-  clickOnShuffle();
+  // clickOnFlip();
+  // clickOnShuffle();
 }
 
-document.getElementById('start-game').addEventListener('click', startGame);
+document.getElementById('start-game').addEventListener('click', () => {
+  startGame();
+});
