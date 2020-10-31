@@ -97,12 +97,6 @@ function flipCards() {
   }
 }
 
-// Event Listener for clicking 'Flip Cards' button
-function clickOnFlip() {
-  const flipBtn = document.getElementById('flip-cards');
-  flipBtn.addEventListener('click', flipCards);
-}
-
 // Function to 'Shuffle Cards'
 function shuffleCards() {
   for (let i = 52; i >= 0; i -= 1) {
@@ -111,11 +105,21 @@ function shuffleCards() {
   styleCards();
 }
 
-// Event Listener for clicking 'Shuffle Cards' button
-function clickOnShuffle() {
+// Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
+function clickOnButton() {
+  const flipBtn = document.getElementById('flip-cards');
+  flipBtn.addEventListener('click', flipCards);
   const shuffleBtn = document.getElementById('shuffle-cards');
-  shuffleBtn.addEventListener('click', shuffleCards);
+  shuffleBtn.addEventListener('click', () => {
+    shuffleCards();
+  });
 }
+
+// Event Listener for clicking 'Shuffle Cards' button
+// function clickOnShuffle() {
+//   const shuffleBtn = document.getElementById('shuffle-cards');
+//   shuffleBtn.addEventListener('click', shuffleCards);
+// }
 
 function createCards() {
   const cards = [];
@@ -150,8 +154,7 @@ function createCards() {
 function startGame() {
   createButtons();
   createCards();
-  // clickOnFlip();
-  // clickOnShuffle();
+  clickOnButton();
 }
 
 document.getElementById('start-game').addEventListener('click', () => {
