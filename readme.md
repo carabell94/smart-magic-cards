@@ -6,14 +6,14 @@
 - Familiarised myself with the HTML and current file structure
 - Pseudocoded the steps I would need to take and functions I would need to build
 - Worked my way through these functions, testing in browser before moving on to the next
-- Uncommented the tests in cypress > integration > magic-trick.js one by one to ensure all tests passing
+- Uncommented the tests in `cypress/integration/magic-trick.js` one by one to ensure all tests passing, changed variable names where required
 - Removed unused code
-- Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks
+- Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks, implementing a 'Replay' function & building associated tests
 
 ### Areas of Improvement
 Had I had more time:
 - I would have liked to get through all the tasks on the Bonus Points list
-- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions
+- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions & combine creating button functions
 
 ### Other Comments
 - This was my first time using Cypress for testing & I would like to have more practice with it
