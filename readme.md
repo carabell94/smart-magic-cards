@@ -11,12 +11,13 @@
 - Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks:
   - **RESET**: I implemented a 'Reset' function & building associated tests
   - **TESTS**: Made sure all tests passed and built my own
-  - **ANIMATION**:
+  - **EXTRA**: Added shuffle noise upon click
 
 ### Areas of Improvement
 Had I had more time:
 - I would have liked to get through all the tasks on the Bonus Points list
 - I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions, combine button creation functions & further separate responsibilities where appropriate
+- I would also like to declare some variables in the upper scope which are currently being repeated e.g. deck
 
 ### Other Comments
 - This was my first time using Cypress for testing & I would like to have more practice with it

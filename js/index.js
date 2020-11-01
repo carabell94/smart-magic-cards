@@ -154,8 +154,6 @@ function chooseCard(card) {
 function clickOnCard() {
   const deck = [...cardsWrapper.children];
   deck.forEach((card) => {
-    // eslint-disable-next-line no-console
-    console.log(deck);
     card.addEventListener('click', () => {
       chooseCard(card);
       createMagicTrickButton(card);
@@ -187,12 +185,21 @@ function shuffleCards() {
   styleCards();
 }
 
+// Function to play shuffle noise audio
+function playAudio() {
+  const audio = document.getElementById('myAudio');
+  audio.play();
+}
+
 // Event Listener for clicking 'Flip Cards' or 'Shuffle Cards' button
 function clickOnButton() {
   const flipBtn = document.getElementById('flip-cards');
   flipBtn.addEventListener('click', flipCards);
   const shuffleBtn = document.getElementById('shuffle-cards');
-  shuffleBtn.addEventListener('click', shuffleCards);
+  shuffleBtn.addEventListener('click', () => {
+    playAudio();
+    shuffleCards();
+  });
 }
 
 // Function to start the game by clearing the wrapper, creating

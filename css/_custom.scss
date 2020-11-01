@@ -4,19 +4,3 @@
   height: 100vh;
 }
 
-.pulsing-button {
-  animation: pulse 3s infinite;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
