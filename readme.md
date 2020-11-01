@@ -1,4 +1,23 @@
 # Smart Magic Cards
+
+### My Process
+- Spent some time understanding the requirements of the task
+- Pseudocoded the steps I would need to take and functions I would need to build
+- Worked my way through these functions, testing before moving on to the next
+- Once my programme had all the basic functionality, I moved on to the bonus points tasks
+
+### Areas of Improvement
+Had I had more time:
+- I would have liked to get through all the tasks on the Bonus Points list
+- I would have tried to refactor my code further
+
+### Other Comments
+- This was my first time using Cypress for testing & I would like to have more practice with it
+
+### How To Run
+- Simply open these files in your preferred text editor (I used Sublime Text) and drag the index.html into a new browser tab
+
+-------------------------------------------------------------------------------
 Join Smart by performing a simple magic trick!!
 
 A magician has a deck of cards, 52 cards, 13 of each suit (Hearts, Diamonds, Clubs and Spades).<br>
