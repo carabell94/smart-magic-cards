@@ -107,15 +107,6 @@ function removeCards() {
   }
 }
 
-// Function to 'Shuffle Cards'
-// function shuffleCards() {
-//   for (let i = deck.length; i > 0; i -= 1) {
-//     const j = Math.floor(Math.random() * 1);
-//     cardsWrapper.appendChild(deck[j]);
-//   }
-//   styleCards();
-// }
-
 // Function to display cards
 function displayCards() {
   // For each dataObject, create a new card and append it to the DOM
@@ -127,6 +118,7 @@ function displayCards() {
     cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
   });
+  styleCards();
   clickOnCard();
 }
 
