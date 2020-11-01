@@ -3,8 +3,8 @@ const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-line */
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
-const deck = [...cardsWrapper.children];
-const selectedCards = [...selectedCardsWrapper.children];
+// const deck = [...cardsWrapper.children];
+// const selectedCards = [...selectedCardsWrapper.children];
 const startButton = document.getElementById('start-game');
 const cards = [];
 
@@ -19,8 +19,8 @@ function hideButton(buttonId) {
 function createButtons() {
   hideButton('start-game');
   const newButtons = [
-    { name: 'flip-cards', innerHTML: 'Flip Cards' },
-    { name: 'shuffle-cards', innerHTML: 'Shuffle Cards' },
+    { name: 'flip-cards', innerHTML: 'Flip cards' },
+    { name: 'shuffle-cards', innerHTML: 'Shuffle cards' },
   ];
   newButtons.forEach((button) => {
     const btn = document.createElement('button');
@@ -34,8 +34,18 @@ function createButtons() {
 
 // Function to style cards in deck
 function styleCards() {
+  const deck = [...cardsWrapper.children];
   deck.forEach((card, i) => {
     const positionFromLeft = i * 25;
+    card.style.left = `${positionFromLeft}px`;
+  });
+}
+
+// Function to style selected cards
+function styleSelectedCards() {
+  const selectedCards = [...selectedCardsWrapper.children];
+  selectedCards.forEach((card, i) => {
+    const positionFromLeft = i * 20;
     card.style.left = `${positionFromLeft}px`;
   });
 }
@@ -48,19 +58,21 @@ function valueOfCard(card) {
 // Magic Trick Function
 function magicTrick(card) {
   const cardValue = valueOfCard(card);
+  const deck = [...cardsWrapper.children];
   deck.forEach((remainingCard) => {
     if (valueOfCard(remainingCard) === cardValue) {
       selectedCardsWrapper.appendChild(remainingCard);
     }
   });
-  styleCards();
+  styleSelectedCards();
 }
 
 // Function to create Magic Trick button if there is only one card in selectedCardsWrapper
 // Includes hiding that button once magic trick has been performed
 function createMagicTrickButton(chosenCard) {
+  const selectedCards = [...selectedCardsWrapper.children];
   const magicTrickButton = document.getElementById('magic-trick');
-  if (magicTrickButton === undefined && selectedCards.length === 1) {
+  if (selectedCards.length === 1 && magicTrickButton === null) {
     const btn = document.createElement('button');
     btn.classList.add('btn', 'btn-lg', 'btn-secondary');
     btn.setAttribute('id', 'magic-trick');
@@ -76,14 +88,19 @@ function createMagicTrickButton(chosenCard) {
 
 // Function to choose card & add to SelectedCardsWrapper
 function chooseCard(card) {
+  const selectedCards = [...selectedCardsWrapper.children];
   if (selectedCards.length === 0) {
     selectedCardsWrapper.appendChild(card);
+    styleSelectedCards();
   }
 }
 
 // Function to listen for a card click on a card in deck
 function clickOnCard() {
+  const deck = [...cardsWrapper.children];
   deck.forEach((card) => {
+    // eslint-disable-next-line no-console
+    console.log(deck);
     card.addEventListener('click', () => {
       chooseCard(card);
       createMagicTrickButton(card);
@@ -110,12 +127,12 @@ function removeCards() {
 // Function to display cards
 function displayCards() {
   // For each dataObject, create a new card and append it to the DOM
-  cards.forEach((card, i) => {
-    const positionFromLeft = i * 25;
+  cards.forEach((card) => {
+    // const positionFromLeft = i * 25;
     const cardElement = document.createElement('div');
     cardElement.setAttribute('data-value', card.value);
     cardElement.classList.add('card', `${card.suit}-${card.value}`);
-    cardElement.style.left = `${positionFromLeft}px`;
+    // cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
   });
   styleCards();
