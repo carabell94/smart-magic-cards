@@ -27,7 +27,7 @@ describe('Play game', () => {
       expect(allCardClasses).to.deep.equal(sortedCardsClasses);
     });
 
-    /* Click the `Suffle` button */
+    /* Click the `Shuffle` button */
     cy.contains('Shuffle').click();
 
     /* The cards are not sorted anymore (shuffled) */
@@ -80,5 +80,15 @@ describe('Play game', () => {
       expect(allCardValues).to.have.length(4);
       expect(allCardValues).to.deep.equal([selectedValue, selectedValue, selectedValue, selectedValue]);
     });
+
+    /* ADDITIONAL TESTS */
+
+    /* Reset button is now available */
+    cy.contains('Reset');
+
+    /* Can click on the 'Reset Game' button */
+    cy.contains('Reset').click();
+
+    /* */
   });
 });

@@ -98,7 +98,6 @@ function createCards() {
       cards.push(cardObject);
     }
   });
-  displayCards();
 }
 
 // Function to Reset Game by emptying both wrappers then re-populating the cardsWrapper array
@@ -108,7 +107,7 @@ function resetGame() {
   selectedCardsWrapper.innerHTML = null;
   cards.splice(0, cards.length);
   createCards();
-  // displayCards();
+  displayCards();
 }
 
 // Function to create 'Reset' button
@@ -116,7 +115,7 @@ function createResetButton() {
   const btn = document.createElement('button');
   btn.classList.add('btn', 'btn-lg', 'btn-secondary');
   btn.setAttribute('id', 'reset-game');
-  btn.innerHTML = 'Reset Game';
+  btn.innerHTML = 'Reset game';
   btn.style.marginRight = '10px';
   btnWrapper.appendChild(btn);
   btn.addEventListener('click', () => resetGame());
