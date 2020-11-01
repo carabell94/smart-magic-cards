@@ -15,7 +15,7 @@
 
 ### Areas of Improvement
 Had I had more time:
-- I would have liked to get through all the tasks on the Bonus Points list
+- I would have liked to get through all the tasks on the Bonus Points list, particularly the drag and drop + animation
 - I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions, combine button creation functions & further separate responsibilities where appropriate
 - I would also like to declare some variables in the upper scope which are currently being repeated e.g. deck
 
