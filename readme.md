@@ -13,7 +13,7 @@
 ### Areas of Improvement
 Had I had more time:
 - I would have liked to get through all the tasks on the Bonus Points list
-- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions & combine creating button functions
+- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions, combine button creation functions &
 
 ### Other Comments
 - This was my first time using Cypress for testing & I would like to have more practice with it
