@@ -1,10 +1,12 @@
-# Smart Magic Cards
+# Task Summary
 
 ### My Process
-- Spent some time understanding the requirements of the task
+- Spent some time understanding the requirements of the task and reading documentation on HTML Collections vs arrays
+- Followed the install instructions as per the README
+- Familiarised myself with the HTML and current file structure
 - Pseudocoded the steps I would need to take and functions I would need to build
-- Worked my way through these functions, testing before moving on to the next
-- Once my programme had all the basic functionality, I moved on to the bonus points tasks
+- Worked my way through these functions, testing in browser before moving on to the next
+- Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks
 
 ### Areas of Improvement
 Had I had more time:
@@ -18,6 +20,7 @@ Had I had more time:
 - Simply open these files in your preferred text editor (I used Sublime Text) and drag the index.html into a new browser tab
 
 -------------------------------------------------------------------------------
+# Smart Magic Cards
 Join Smart by performing a simple magic trick!!
 
 A magician has a deck of cards, 52 cards, 13 of each suit (Hearts, Diamonds, Clubs and Spades).<br>
