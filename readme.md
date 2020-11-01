@@ -9,8 +9,8 @@
 - Uncommented the tests in `cypress/integration/magic-trick.js` one by one to ensure all tests passing, changed variable names where required
 - Removed unused code
 - Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks:
-  - **RESET**: I implemented a 'Reset' function & building associated tests
-  - **TESTS**: Made sure all tests passed and built my own
+  - **RESET**: I implemented a 'Reset' function & built associated tests
+  - **TESTS**: Made sure all tests passed and built my own additional tests
   - **EXTRA**: Added shuffle noise upon click
 
 ### Areas of Improvement
