@@ -10,15 +10,17 @@
 - Removed unused code
 - Once my programme had all the basic functionality implemented, I moved on to the bonus points tasks:
   - **RESET**: I implemented a 'Reset' function & building associated tests
+  - **TESTS**: Made sure all tests passed and built my own
+  - **ANIMATION**:
 
 ### Areas of Improvement
 Had I had more time:
 - I would have liked to get through all the tasks on the Bonus Points list
-- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions, combine button creation functions &
+- I would have tried to refactor my code further e.g. combine styleCards and styleSelectedCards functions, combine button creation functions & further separate responsibilities where appropriate
 
 ### Other Comments
 - This was my first time using Cypress for testing & I would like to have more practice with it
-- I really enjoyed this task, thank you for giving me the opportunity!
+- I really enjoyed this task, thank you for giving me this opportunity!
 
 ### How To Run
 - Simply open these files in your preferred text editor (I used Sublime Text) and drag the index.html into a new browser tab
