@@ -21,11 +21,11 @@ describe('Play game', () => {
       cy.get(`[class*="${suit}-"]`).should('have.length', 13);
     });
 
-    // /* The cards are sorted and grouped by suit (hearts, spades, diamonds, clubs) */
-    // cy.get('.card').then((cards) => {
-    //   const allCardClasses = [...cards].map((card) => card.classList[1]);
-    //   expect(allCardClasses).to.deep.equal(sortedCardsClasses);
-    // });
+    /* The cards are sorted and grouped by suit (hearts, spades, diamonds, clubs) */
+    cy.get('.card').then((cards) => {
+      const allCardClasses = [...cards].map((card) => card.classList[1]);
+      expect(allCardClasses).to.deep.equal(sortedCardsClasses);
+    });
 
     /* Click the `Suffle` button */
     cy.contains('Shuffle').click();
@@ -63,22 +63,22 @@ describe('Play game', () => {
       expect(cards[0]).to.equal(selectedCard);
     });
 
-    // /* Click on the `Magic` button */
-    // cy.contains('Magic').click();
+    /* Click on the `Magic` button */
+    cy.contains('Magic').click();
 
-    // /* All the related cards have been removed from the deck */
-    // cy.get('.cards-wrapper .card').then((cards) => {
-    //   const allCardValues = [...cards].map((card) => card.getAttribute('data-value'));
-    //   expect(allCardValues).to.have.length(48);
-    //   expect(allCardValues).to.not.include(selectedCard.getAttribute('data-value'));
-    // });
+    /* All the related cards have been removed from the deck */
+    cy.get('.cards-wrapper .card').then((cards) => {
+      const allCardValues = [...cards].map((card) => card.getAttribute('data-value'));
+      expect(allCardValues).to.have.length(48);
+      expect(allCardValues).to.not.include(selectedCard.getAttribute('data-value'));
+    });
 
-    // /* The removed cards are displayed in the `selected-card-wrapper` */
-    // cy.get('.selected-card-wrapper .card').then((cards) => {
-    //   const allCardValues = [...cards].map((card) => card.getAttribute('data-value'));
-    //   const selectedValue = selectedCard.getAttribute('data-value');
-    //   expect(allCardValues).to.have.length(4);
-    //   expect(allCardValues).to.deep.equal([selectedValue, selectedValue, selectedValue, selectedValue]);
-    // });
+    /* The removed cards are displayed in the `selected-card-wrapper` */
+    cy.get('.selected-card-wrapper .card').then((cards) => {
+      const allCardValues = [...cards].map((card) => card.getAttribute('data-value'));
+      const selectedValue = selectedCard.getAttribute('data-value');
+      expect(allCardValues).to.have.length(4);
+      expect(allCardValues).to.deep.equal([selectedValue, selectedValue, selectedValue, selectedValue]);
+    });
   });
 });

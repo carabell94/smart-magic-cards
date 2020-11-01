@@ -1,5 +1,5 @@
 // Replaced hearts 'suit' with suits array to incorporate all 4 suits in game
-const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const btnWrapper = document.querySelector('.btn-wrapper'); /* eslint-disable-line */
 const selectedCardsWrapper = document.querySelector('.selected-cards'); /* eslint-disable-line */
