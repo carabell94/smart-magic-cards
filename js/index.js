@@ -171,6 +171,7 @@ function createCards() {
       cards.push(cardObject);
     }
   });
+  displayCards();
 }
 
 // Function to Reset Game by emptying both wrappers then re-populating the cardsWrapper array
@@ -180,7 +181,7 @@ function resetGame() {
   selectedCardsWrapper.innerHTML = null;
   cards.splice(0, cards.length);
   createCards();
-  displayCards();
+  // displayCards();
 }
 
 // Function to create 'Reset' button
