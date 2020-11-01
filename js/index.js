@@ -67,6 +67,61 @@ function magicTrick(card) {
   styleSelectedCards();
 }
 
+// Function to display cards
+function displayCards() {
+  // For each dataObject, create a new card and append it to the DOM
+  cards.forEach((card) => {
+    // const positionFromLeft = i * 25;
+    const cardElement = document.createElement('div');
+    cardElement.setAttribute('data-value', card.value);
+    cardElement.classList.add('card', `${card.suit}-${card.value}`);
+    // cardElement.style.left = `${positionFromLeft}px`;
+    cardsWrapper.append(cardElement);
+  });
+  styleCards();
+  // eslint-disable-next-line no-use-before-define
+  clickOnCard();
+}
+
+// Function to initially create cards
+function createCards() {
+  // Create an array with objects containing the value and the suit of each card
+  // for (let s = 0; s < suits.length; s += 1) {
+  suits.forEach((suit) => {
+    for (let i = 1; i <= 13; i += 1) {
+      const cardObject = {
+        value: i,
+        // eslint-disable-next-line object-shorthand
+        suit: suit,
+      };
+
+      cards.push(cardObject);
+    }
+  });
+  displayCards();
+}
+
+// Function to Reset Game by emptying both wrappers then re-populating the cardsWrapper array
+function resetGame() {
+  hideButton('reset-game');
+  cardsWrapper.innerHTML = null;
+  selectedCardsWrapper.innerHTML = null;
+  cards.splice(0, cards.length);
+  createCards();
+  // displayCards();
+}
+
+// Function to create 'Reset' button
+function createResetButton() {
+  const btn = document.createElement('button');
+  btn.classList.add('btn', 'btn-lg', 'btn-secondary');
+  btn.setAttribute('id', 'reset-game');
+  btn.innerHTML = 'Reset Game';
+  btn.style.marginRight = '10px';
+  btnWrapper.appendChild(btn);
+  btn.addEventListener('click', () => resetGame());
+}
+
 // Function to create Magic Trick button if there is only one card in selectedCardsWrapper
 // Includes hiding that button once magic trick has been performed
 function createMagicTrickButton(chosenCard) {
@@ -125,21 +180,6 @@ function removeCards() {
   }
 }
 
-// Function to display cards
-function displayCards() {
-  // For each dataObject, create a new card and append it to the DOM
-  cards.forEach((card) => {
-    // const positionFromLeft = i * 25;
-    const cardElement = document.createElement('div');
-    cardElement.setAttribute('data-value', card.value);
-    cardElement.classList.add('card', `${card.suit}-${card.value}`);
-    // cardElement.style.left = `${positionFromLeft}px`;
-    cardsWrapper.append(cardElement);
-  });
-  styleCards();
-  clickOnCard();
-}
-
 // Function to shuffle cards by first removing all cards then shuffling using random shuffle method
 function shuffleCards() {
   removeCards();
@@ -154,45 +194,6 @@ function clickOnButton() {
   flipBtn.addEventListener('click', flipCards);
   const shuffleBtn = document.getElementById('shuffle-cards');
   shuffleBtn.addEventListener('click', shuffleCards);
-}
-
-// Function to initially create cards
-function createCards() {
-  // Create an array with objects containing the value and the suit of each card
-  // for (let s = 0; s < suits.length; s += 1) {
-  suits.forEach((suit) => {
-    for (let i = 1; i <= 13; i += 1) {
-      const cardObject = {
-        value: i,
-        // eslint-disable-next-line object-shorthand
-        suit: suit,
-      };
-
-      cards.push(cardObject);
-    }
-  });
-  displayCards();
-}
-
-// Function to Reset Game by emptying both wrappers then re-populating the cardsWrapper array
-function resetGame() {
-  hideButton('reset-game');
-  cardsWrapper.innerHTML = null;
-  selectedCardsWrapper.innerHTML = null;
-  cards.splice(0, cards.length);
-  createCards();
-  // displayCards();
-}
-
-// Function to create 'Reset' button
-function createResetButton() {
-  const btn = document.createElement('button');
-  btn.classList.add('btn', 'btn-lg', 'btn-secondary');
-  btn.setAttribute('id', 'reset-game');
-  btn.innerHTML = 'Reset Game';
-  btn.style.marginRight = '10px';
-  btnWrapper.appendChild(btn);
-  btn.addEventListener('click', () => resetGame());
 }
 
 // Function to start the game by clearing the wrapper, creating
